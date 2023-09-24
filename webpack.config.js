@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     // Entry point for the application
-    entry: './src/index.js',
+    entry: './src/index.mjs',
     mode: 'production',
 
     // Output configuration
@@ -13,18 +13,6 @@ module.exports = {
 
     module: {
         rules: [
-            {   
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
-                // use: [
-                //     {
-                //       loader: 'file-loader',
-                //       options: {
-                //         outputPath: 'assets/scene',
-                //       },
-                //     },
-                // ],
-            },  
             {
                 test: "/\.js$/", // Apply this rule to files ending in .js
                 exclude: "/node_modules/", // Exclude node_modules directory
@@ -34,4 +22,11 @@ module.exports = {
             },
         ],
     },
+
+    // ...other configurations
+  resolve: {
+    fallback: {
+      "util": require.resolve("util/")
+    }
+  }
 };

@@ -3,10 +3,9 @@ const exec = require('gulp-exec')
 
 // const sourcemaps = require('gulp-sourcemaps');
 // const browserSync = require('browser-sync').create()
-
 const fs = require('fs')
 
-const jsFiles = 'src/**/*.js'
+const jsFiles = 'src/**/*.mjs'
 
 // browserSync.init({
 //     server: {
@@ -16,7 +15,7 @@ const jsFiles = 'src/**/*.js'
 
 function jsTask(){
     return src(jsFiles)
-    .pipe(exec('npx webpack --config webpack.config.js')) // Put everything in the build directory
+    // .pipe(exec('npx webpack --config webpack.config.js')) // Put everything in the build directory
     .pipe(dest('build')) // Put everything in the build directory
     // .pipe(browserSync.stream())
 }
